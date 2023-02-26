@@ -5,82 +5,211 @@ output: html_document
 
 ### Introduction
 
-An introduction of the data and a description of the trends/books/items you are choosing to analyze (and why!)
+The dataset that I chose was a dataset that logged every item that was checked out at least 10 times in a given month. I wanted to analyze the popularity of certain material types throughout the years. I chose this because with the advances of technology and online resources becoming widely more accessible, I wondered if physical books and resources were still being used. I wanted to visualize any trends of use or lack of use among some material types. For example, in my first chart I compare books, ebook, magazines, sound discs, video discs, and music checkouts.
+
+Additionally, because of the change of physical material checkouts, I wanted to observe the trends of a book I saw in the dataset that have. I chose It Ends With Us by Colleen Hoover. She has becoming increasingly popular and I wanted to visualize the popularity I know that book has gained over the years. She got a lot of publicity for the book especially on Tiktok so I believe that's why there were more checkouts in particular years than others. While I was still using TikTok, I saw that the number of times the book was mentioned was most in the years 2021 and 2022 while everyone was in their "quarantine reading phases". I chose this time frame to observe and study. I also wanted to compare it to her other works that came out around the same time. I chose Layla to compare It Ends With Us with for the years 2021 and 2022. Additionally, there are ebook versions of the book, but I wanted to focus on the physical book because firstly, it is something I own and is more personal to me, and secondly, because it almost became a trend to own the physical book. Because of these circumstances, I decided to only filter for physical copies of these books and analyze those. 
+
+I also wanted to compare total physical and digital checkout items in the past 6 years. I summed up all of the checkouts in this category and found that there was a total of 462,058 physical checkouts and 354,296 digital checkouts. It seems that overall, physical items outnumber digital ones, however, this may be because they have been around longer and everyone has the chance to check out these physical items. Digital items may be limited in checkouts because you need to have equipment to render these checkouts which may be a reason why there are less checkouts. 
 
 ### Summary Information
 
-Write a summary paragraph of findings that includes the 5 values calculated from your summary information R script
+I tracked the checkouts of 6 material types from the years 2017 to 2023. I found that the number of books that were checked out in 2017 to 2023 was 305,755. The number of audiobooks, books, ebooks magazines, sound discs and video discs  checked out in the timeframe are 147629, 305755, 201049, 2637, 16957, and 136165 respectively. These material types were chosen because they are material types I thought were the most popular and had at least a thousand checkouts every year. I chose this parameter because I wanted to compare popular material types with a similar scale. However, out of these 6, magazine data is no longer collected after 2019. I notice that there was a decline of magazine checkouts from 1270 in 2017, 1170 in 2018 to 197 checkouts in 2019. I wonder if this is because magazines are just not popular anymore to the point no one checks it out or if it is because magazines are no longer a material type that you can checkout. My local library does not allow magazine checkouts and I wonder if that's the case here. 
 
-These will likely be calculated using your DPLYR skills, answering questions such as:
-
-- What is the average number of checkouts for each item?
-- What is the month or year with the most/least checkouts for a book that you're interested in?
-- What is the month or year with the most/least checkouts for ebooks?
-- How has the number of print book checkouts changed over time?
-
-Feel free to calculate and report values that you find relevant.
+It Ends With Us had more checkouts in 2022 than in 2021. In 2021 there were 85 checkouts and in 2022, there were 518. For Layla, there were 34 checkouts in 2021 and 74 in 2022. With the rise of Hoover's popularity, it makes sense why there were more checkouts in more recent years than past ones. 
 
 ### The Dataset
 
 - Who collected/published the data?  
+
+The data was collected and published by the Seattle Public Library. They kept track of all materials that were checked out more than 10 times a month. 
+
 - What are the parameters of the data (dates, number of checkouts, kinds of books, etc.)?
+
+The number of checkouts had to be a minimum of 10 for a particular item to be added into this dataset. The dates ranged from the year 2017 to 2023. There does not seem to be a limit on what kind of media the library kept track out. As long as the item was checked out at least 10 times a month it was added. There are material types such as ebooks, audiobooks, sound discs, magazines, etc. The genres of the books were also varied. There are an assortment of unique genres that included subjects like pets, philosophy, and fiction to name a few. The data also keeps user checkout data private. 
+
 - How was the data collected or generated?  
+
+A larger data initiative was put in place by Barack Obama. This is a start of the government making more efforts in making data more public and accessible. 
+Older SPL data from 2005 and after was collected by an individuals artist and professor that created a data visualization and to make that art, the data needed to be collected and displayed. The art installation had 10 years of checkout data and that was used to get previous checkouts even though the program started in 2017. However all the data since 2017 has been collected by the library. 
+
 - Why was the data collected?  
-- What, if any, ethical questions do you need to consider when working with this data?  
+
+The data was collected to most likely keep track of the library's catalog and resources. This is a very telling dataset that librarians can use to see what items are popular. It also informs librarians which items are not checked out and what trends there seem to be. This allows them to plan their functioning such as ordering more popular books or getting rid of resources that seem to have no use. 
+Also, Professor Walsh hints that checkout data also reflects our culture and current events. It is a another way to get a sense of what is happening in our community. 
+
+- What, if any, ethical questions do you need to consider when working with this data?
+
+I think this dataset is already pretty ethical. It is anonymized which means personal information about who checked out each item is not accessible or present. Additionally, it is publically available. Through the professors research, she has found most book sales data is held within BookScan. This information is not accessible unless you are in the industry which makes it incredibly hard for academic analysis. Unlike book sale data, the Seattle Public Library has this data open to the public ready to use. 
+
 - What are possible limitations or problems with this data?   (at least 200 words)
 
+There are many repeats of titles or authors that vary even though they may be similar. This makes it more difficult to clean with the intense number of variations. Additionally, there is so much data that it makes it hard to compute which is why you must analyze the data in smaller chunks. However, because it is so large, I think it is less limiting than if it was a smaller dataset. The sheer number of information inputs will limit your ability of work though because your computer may not be able to process it all at once which is why I think this could be a potential limitation.
 
-### First Trends Over Time Chart
+Additionally, there is information missing in the Creator, Publication year, and ISBN columns of the data. Even though there is a substantial amount of data, these missing pieces of information does not give a complete set. This could potentially cause problems in analysis when trying to account for certain factors but because of the misisng data, no conclusions can be made. 
 
-Include a chart. Make sure to describe why you included the chart, and what patterns emerged
+Lastly, I noticed that there was not any data for magazine checkouts after the year of 2019. There wasn't a reason given as to why this was happening. I'd imagine that magazines and many other material types were checked out but may not have been documented. This leaves more holes in this dataset. 
 
-The first chart that you will create and include will show the trend over time of your variable/topic/interest. Think carefully about what you want to communicate to your user (you may have to find relevant trends in the dataset first!). Here are some requirements to help guide your design:
+### First Trends Over Time Chart: Material Types Checked Out Over the Years (2017-2023)
 
-- Show more than one, but fewer than ~10 trends
-  - For example, two books, or 5 different mediums
-- You must have clear x and y axis labels
-- The chart needs a clear title 
-- You need a legend for your different line colors and a clear - legend title
-In your .Rmd file, make sure to describe why you included the chart, and what patterns emerged
+I decided to choose several material types that I thought were the most popular and ones that I personally see being checked out the most. I often check out all of the material types I listed below and am most familiar with these.
 
-When we say "clear" or "human readable" titles and labels, that means that you should not just display the variable name.
+I think it's interesting to observe these trends because it is very telling on the borrowing habits of our community. From the years of 2017-2020, books video discs, and sound discs were getting borrowed less and less. However, after 2020, books and video discs started to be borrowed more often. I suspect that this is due to the fact that Covid-19 struck and people were stuck at home. Because of the quarantine, I heard that many people picked up reading as a hobby which may be reflected in this data visualization. Magazines stop being recorded after 2019 which makes me wonder if it is because they weren'y popular anymore or if checkout policy changed. Sound discs never saw an increase in checkouts. Its rates continue to decline year by year. Ebooks borrowing rates increase from 2017 to 2020 where it starts to level out and decrease.  Audiobooks continue to be checked out more often. 
 
-Here's an example of how to run an R script inside an RMarkdown file:
+The data shows a dramatic dip in the year of 2023 and it appears that people suddenly no longer want to check out any of these materials. However, this is not the case. The year 2023 has just begun so there is not a very large cumulative borrowing archive of these items which is why it's checkout numbers are so low. 
 
-``````{r, echo = FALSE, warning = FALSE, code = readLines("chart1_example.R")}
+```{r echo = FALSE, warning=FALSE, message = FALSE}
+library(dplyr)
+library(ggplot2)
+library(knitr)
+
+data <-
+  read.csv("2017-2023-10-Checkouts-SPL-Data.csv", stringsAsFactors = F)
+
+books <-
+  data %>% filter(MaterialType == "BOOK") %>% count(CheckoutYear)
+music <-
+  data %>% filter(MaterialType == "MUSIC") %>% count(CheckoutYear)
+audiobooks <-
+  data %>% filter(MaterialType == "AUDIOBOOK") %>% count(CheckoutYear)
+video_disc <-
+  data %>% filter(MaterialType == "VIDEODISC") %>% count(CheckoutYear)
+sound_disc  <-
+  data %>% filter(MaterialType == "SOUNDDISC") %>% count(CheckoutYear)
+ebook <-
+  data %>% filter(MaterialType == "EBOOK") %>% count(CheckoutYear)
+magazine <-
+  data %>% filter(MaterialType == "MAGAZINE") %>% count(CheckoutYear)
+
+ggplot() + geom_line(data = books,
+                     mapping = aes(x = CheckoutYear,
+                                   y = n,
+                                   color = "books")) +
+  scale_x_continuous(limits = c(2017, 2023)) +
+  labs(title = "Material Types Checkouts Over the Years",
+       x = "Checkout Year",
+       y = "Total Checkouts") +
+  geom_line(data = audiobooks,
+            mapping = aes(x = CheckoutYear,
+                          y = n,
+                          color = "audiobooks")) +
+  scale_x_continuous(limits = c(2017, 2023)) +
+  labs(title = "Material Types Checkouts Over the Years",
+       x = "Checkout Year",
+       y = "Total Checkouts") +
+  geom_line(data = video_disc,
+            mapping = aes(x = CheckoutYear,
+                          y = n,
+                          color = "video disc")) +
+  scale_x_continuous(limits = c(2017, 2023)) +
+  labs(title = "Material Types Checkouts Over the Years",
+       x = "Checkout Year",
+       y = "Total Checkouts") +
+  geom_line(data = sound_disc,
+            mapping = aes(x = CheckoutYear,
+                          y = n,
+                          color = "sound disc")) +
+  scale_x_continuous(limits = c(2017, 2023)) +
+  labs(title = "Material Types Checkouts Over the Years",
+       x = "Checkout Year",
+       y = "Total Checkouts") +
+  geom_line(data = ebook,
+            mapping = aes(x = CheckoutYear,
+                          y = n,
+                          color = "ebook")) +
+  scale_x_continuous(limits = c(2017, 2023)) +
+  labs(title = "Material Types Checkouts Over the Years",
+       x = "Checkout Year",
+       y = "Total Checkouts") +
+  geom_line(data = magazine,
+            mapping = aes(x = CheckoutYear, y = n, color = "magazine")) +
+  scale_x_continuous(limits = c(2017, 2023)) +
+  labs(title = "Material Types Checkouts Over the Years",
+       x = "Checkout Year",
+       y = "Total Checkouts")
+
 ```
 
-### Second Trends Over Time Chart
+### Second Trends Over Time Chart: Checkouts of It Ends With Us and Layla in 2021 and 2022
 
-Include a chart. Make sure to describe why you included the chart, and what patterns emerged
+I included this chart because I wanted to compare two titles by Colleen Hoover in the years 2021 and 2022 when I believe her popularity was at her peak. I own one of the books and wanted to observe any trends and see if it correlated with my hypothesis. I thought that It Ends With Us was a book that gained so much popularity in 2021 and 2022 so I wanted so see how Hoover's most popular book compared to another one of hers. I see that there was a drastic increase of checkouts of It Ends With Us in 2022 than in 2021. Layla also had an increase in 2022, but it wasn't as dramatic. When stacked on each other, it appears that It Ends With Us is a lot more popular than Layla. 
 
-The second chart that you will create and include will show another trend over time of your variable/topic/interest. Think carefully about what you want to communicate to your user (you may have to find relevant trends in the dataset first!). Here are some requirements to help guide your design:
 
-- Show more than one, but fewer than ~10 trends
-  - For example, two books, or 5 different mediums
-- You must have clear x and y axis labels
-- The chart needs a clear title 
-- You need a legend for your different line colors and a clear - legend title
-In your .Rmd file, make sure to describe why you included the chart, and what patterns emerged
+```{r echo = FALSE, warning = FALSE, message=FALSE}
+library(dplyr)
+library(stringr)
+library(tidyr)
+library(ggplot2)
 
-When we say "clear" or "human readable" titles and labels, that means that you should not just display the variable name.
+data <-
+  read.csv("2017-2023-10-Checkouts-SPL-Data.csv", stringsAsFactors = F)
 
-Here's an example of how to run an R script inside an RMarkdown file:
+author_df <- data %>%
+  filter(str_detect(Creator, "Colleen")) %>%
+  filter(str_detect(Creator, "Hoover"))
 
-``````{r, echo = FALSE, code = readLines("chart2_example.R")}
+hoover_books <- author_df %>% filter(MaterialType == "BOOK")
+
+it_ends_with_us <-
+  hoover_books %>% filter(str_detect(Title, "It ends with us"))
+
+it_ends_with_us_2021 <-
+  it_ends_with_us %>% filter(CheckoutYear == 2021)
+it_ends_with_us_2022 <-
+  it_ends_with_us %>% filter(CheckoutYear == 2022)
+
+layla_book <- hoover_books %>% filter(str_detect(Title, "Layla"))
+layla_2021 <- layla_book %>% filter(CheckoutYear == 2021)
+layla_2022 <- layla_book %>% filter(CheckoutYear == 2022)
+
+ggplot() +
+  geom_col(
+    data = it_ends_with_us_2021,
+    mapping = aes(x = CheckoutYear,
+                  y = Checkouts,
+                  color = "it ends with us 2021")
+  ) +
+  labs(title = "Checkouts of It Ends With Us and Layla in 2021 and 2022") +
+  geom_col(
+    data = it_ends_with_us_2022,
+    mapping = aes(x = CheckoutYear,
+                  y = Checkouts,
+                  color = "it ends with us 2022")
+  ) +
+  labs(title = "Checkouts of It Ends With Us and Layla in 2021 and 2022") +
+  geom_col(
+    data = layla_2021,
+    mapping = aes(x = CheckoutYear,
+                  y = Checkouts,
+                  color = "layla 2021")
+  ) +
+  labs(title = "Checkouts of It Ends With Us and Layla in 2021 and 2022") +
+  geom_col(
+    data = layla_2022,
+    mapping = aes(x = CheckoutYear,
+                  y = Checkouts,
+                  color = "layla 2022")
+  ) +
+  labs(title = "Checkouts of It Ends With Us and Layla in 2021 and 2022")
 ```
 
-### Your Choice
+### Chart 3: Total Checkouts of Physical and Digital Classes from 2017-2023
 
-The last chart is up to you. It could be a line plot, scatter plot, histogram, bar plot, stacked bar plot, and more. Here are some requirements to help guide your design:
+I decided to compare the total number of digital and physical checkouts over the span of the 6 years. It seems that physical checkouts have a higher number of checkouts than digital. Digital items include items such as ebooks, audiobooks, songs, music, and magazines. Physical items include items such as books, video discs, and sound discs. There were 462,058 physical checkouts and 354,296 digital checkouts. 
 
-- You must have clear x and y axis labels
-- The chart needs a clear title 
-- You need a legend for your different line colors and a clear legend title
 
-Here's an example of how to run an R script inside an RMarkdown file:
+```{r echo = FALSE, warning = FALSE, message=FALSE}
+Physical_total <-
+  data %>% filter(UsageClass == "Physical") %>% count(UsageClass)
+Digital_Total <-
+  data %>% filter(UsageClass == "Digital") %>% count(UsageClass)
 
-``````{r, echo = FALSE, code = readLines("chart2_example.R")}
+ggplot() + geom_col(Physical_total, mapping = aes(x = UsageClass, y = n, fill = "Physical")) +
+  scale_y_continuous(limits = c(0, 470000)) +
+  labs(title = "Total Checkouts of Physical and Digital Classes from 2017-2023",
+       fill = "Legend",
+       x = "UsageClass",
+       y = "count") +
+  geom_col(Digital_Total, mapping = aes(x = UsageClass, y = n, fill = "Digital"))
 ```
 
 
