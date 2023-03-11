@@ -17,6 +17,7 @@ total_books_2022<- data %>% filter(CheckoutYear == 2022) %>% filter(MaterialType
 total_books_2023 <- data %>% filter(CheckoutYear == 2023) %>% filter(MaterialType == "BOOK") 
 
 books <- data %>% filter(MaterialType == "BOOK") %>% count(CheckoutYear)
+risk <- maternaldf <- filter(RiskLevel == c("high risk", "mid risk", "low risk")) %>% count(RiskLevel)
 
 book_checkouts_all <- books %>% summarize(total_books = sum(n)) %>% pull(total_books)
 

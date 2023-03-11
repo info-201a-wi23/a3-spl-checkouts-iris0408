@@ -57,75 +57,8 @@ I think it's interesting to observe these trends because it is very telling on t
 
 The data shows a dramatic dip in the year of 2023 and it appears that people suddenly no longer want to check out any of these materials. However, this is not the case. The year 2023 has just begun so there is not a very large cumulative borrowing archive of these items which is why it's checkout numbers are so low. 
 
-```{r echo = FALSE, warning=FALSE, message = FALSE}
-library(dplyr)
-library(ggplot2)
-library(knitr)
+```{r echo = FALSE, warning=FALSE, message = FALSE, code = readLines("Chart_1_rsb.R")}
 
-data <-
-  read.csv("2017-2023-10-Checkouts-SPL-Data.csv", stringsAsFactors = F)
-
-books <-
-  data %>% filter(MaterialType == "BOOK") %>% count(CheckoutYear)
-music <-
-  data %>% filter(MaterialType == "MUSIC") %>% count(CheckoutYear)
-audiobooks <-
-  data %>% filter(MaterialType == "AUDIOBOOK") %>% count(CheckoutYear)
-video_disc <-
-  data %>% filter(MaterialType == "VIDEODISC") %>% count(CheckoutYear)
-sound_disc  <-
-  data %>% filter(MaterialType == "SOUNDDISC") %>% count(CheckoutYear)
-ebook <-
-  data %>% filter(MaterialType == "EBOOK") %>% count(CheckoutYear)
-magazine <-
-  data %>% filter(MaterialType == "MAGAZINE") %>% count(CheckoutYear)
-
-ggplot() + geom_line(data = books,
-                     mapping = aes(x = CheckoutYear,
-                                   y = n,
-                                   color = "books")) +
-  scale_x_continuous(limits = c(2017, 2023)) +
-  labs(title = "Material Types Checkouts Over the Years",
-       x = "Checkout Year",
-       y = "Total Checkouts") +
-  geom_line(data = audiobooks,
-            mapping = aes(x = CheckoutYear,
-                          y = n,
-                          color = "audiobooks")) +
-  scale_x_continuous(limits = c(2017, 2023)) +
-  labs(title = "Material Types Checkouts Over the Years",
-       x = "Checkout Year",
-       y = "Total Checkouts") +
-  geom_line(data = video_disc,
-            mapping = aes(x = CheckoutYear,
-                          y = n,
-                          color = "video disc")) +
-  scale_x_continuous(limits = c(2017, 2023)) +
-  labs(title = "Material Types Checkouts Over the Years",
-       x = "Checkout Year",
-       y = "Total Checkouts") +
-  geom_line(data = sound_disc,
-            mapping = aes(x = CheckoutYear,
-                          y = n,
-                          color = "sound disc")) +
-  scale_x_continuous(limits = c(2017, 2023)) +
-  labs(title = "Material Types Checkouts Over the Years",
-       x = "Checkout Year",
-       y = "Total Checkouts") +
-  geom_line(data = ebook,
-            mapping = aes(x = CheckoutYear,
-                          y = n,
-                          color = "ebook")) +
-  scale_x_continuous(limits = c(2017, 2023)) +
-  labs(title = "Material Types Checkouts Over the Years",
-       x = "Checkout Year",
-       y = "Total Checkouts") +
-  geom_line(data = magazine,
-            mapping = aes(x = CheckoutYear, y = n, color = "magazine")) +
-  scale_x_continuous(limits = c(2017, 2023)) +
-  labs(title = "Material Types Checkouts Over the Years",
-       x = "Checkout Year",
-       y = "Total Checkouts")
 
 ```
 
@@ -134,82 +67,17 @@ ggplot() + geom_line(data = books,
 I included this chart because I wanted to compare two titles by Colleen Hoover in the years 2021 and 2022 when I believe her popularity was at her peak. I own one of the books and wanted to observe any trends and see if it correlated with my hypothesis. I thought that It Ends With Us was a book that gained so much popularity in 2021 and 2022 so I wanted so see how Hoover's most popular book compared to another one of hers. I see that there was a drastic increase of checkouts of It Ends With Us in 2022 than in 2021. Layla also had an increase in 2022, but it wasn't as dramatic. When stacked on each other, it appears that It Ends With Us is a lot more popular than Layla. 
 
 
-```{r echo = FALSE, warning = FALSE, message=FALSE}
-library(dplyr)
-library(stringr)
-library(tidyr)
-library(ggplot2)
+```{r echo = FALSE, warning = FALSE, message=FALSE, code = readLines("Chart_2_rsb.R")}
 
-data <-
-  read.csv("2017-2023-10-Checkouts-SPL-Data.csv", stringsAsFactors = F)
-
-author_df <- data %>%
-  filter(str_detect(Creator, "Colleen")) %>%
-  filter(str_detect(Creator, "Hoover"))
-
-hoover_books <- author_df %>% filter(MaterialType == "BOOK")
-
-it_ends_with_us <-
-  hoover_books %>% filter(str_detect(Title, "It ends with us"))
-
-it_ends_with_us_2021 <-
-  it_ends_with_us %>% filter(CheckoutYear == 2021)
-it_ends_with_us_2022 <-
-  it_ends_with_us %>% filter(CheckoutYear == 2022)
-
-layla_book <- hoover_books %>% filter(str_detect(Title, "Layla"))
-layla_2021 <- layla_book %>% filter(CheckoutYear == 2021)
-layla_2022 <- layla_book %>% filter(CheckoutYear == 2022)
-
-ggplot() +
-  geom_col(
-    data = it_ends_with_us_2021,
-    mapping = aes(x = CheckoutYear,
-                  y = Checkouts,
-                  color = "it ends with us 2021")
-  ) +
-  labs(title = "Checkouts of It Ends With Us and Layla in 2021 and 2022") +
-  geom_col(
-    data = it_ends_with_us_2022,
-    mapping = aes(x = CheckoutYear,
-                  y = Checkouts,
-                  color = "it ends with us 2022")
-  ) +
-  labs(title = "Checkouts of It Ends With Us and Layla in 2021 and 2022") +
-  geom_col(
-    data = layla_2021,
-    mapping = aes(x = CheckoutYear,
-                  y = Checkouts,
-                  color = "layla 2021")
-  ) +
-  labs(title = "Checkouts of It Ends With Us and Layla in 2021 and 2022") +
-  geom_col(
-    data = layla_2022,
-    mapping = aes(x = CheckoutYear,
-                  y = Checkouts,
-                  color = "layla 2022")
-  ) +
-  labs(title = "Checkouts of It Ends With Us and Layla in 2021 and 2022")
 ```
 
 ### Chart 3: Total Checkouts of Physical and Digital Classes from 2017-2023
 
-I decided to compare the total number of digital and physical checkouts over the span of the 6 years. It seems that physical checkouts have a higher number of checkouts than digital. Digital items include items such as ebooks, audiobooks, songs, music, and magazines. Physical items include items such as books, video discs, and sound discs. There were 462,058 physical checkouts and 354,296 digital checkouts. 
+I decided to compare the total number of digital and physical checkouts over the span of the 6 years. With the increase of technology, I wanted to see if physical items remained supreme or if digital elements were taking over. This is important information as it can reflect borrowing habits of patrons and they can allocate resources to support the behavior the checkouts are exhibiting. It seems that physical checkouts have a higher number of checkouts than digital. Digital items include items such as ebooks, audiobooks, songs, music, and magazines. Physical items include items such as books, video discs, and sound discs. There were 462,058 physical checkouts and 354,296 digital checkouts. 
 
 
-```{r echo = FALSE, warning = FALSE, message=FALSE}
-Physical_total <-
-  data %>% filter(UsageClass == "Physical") %>% count(UsageClass)
-Digital_Total <-
-  data %>% filter(UsageClass == "Digital") %>% count(UsageClass)
+```{r echo = FALSE, warning = FALSE, message=FALSE, code = readLines("Chart_3_rsb.R")}
 
-ggplot() + geom_col(Physical_total, mapping = aes(x = UsageClass, y = n, fill = "Physical")) +
-  scale_y_continuous(limits = c(0, 470000)) +
-  labs(title = "Total Checkouts of Physical and Digital Classes from 2017-2023",
-       fill = "Legend",
-       x = "UsageClass",
-       y = "count") +
-  geom_col(Digital_Total, mapping = aes(x = UsageClass, y = n, fill = "Digital"))
 ```
 
 
